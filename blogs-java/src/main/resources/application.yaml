@@ -1,10 +1,18 @@
+server:
+  servlet:
+    context-path: /
 # DataSource Config
 spring:
+  profiles:
+    active: test
+#  messages:
+#    basename: i18n/message
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/blogs?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: root
     password: root
+
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**Mapper.xml
 
@@ -19,3 +27,4 @@ markerhub:
     # token有效时长，7天，单位秒
     expire: 604800
     header: token
+
