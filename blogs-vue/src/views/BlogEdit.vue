@@ -95,6 +95,19 @@ export default {
         }
       });
     }
+  },
+  created() {
+    const id = this.$route.params.id;
+    if (id){
+      const _this = this
+      this.$axios.get(`/blog/${id}`).then(res=>{
+        const blog = res.data.data
+        _this.ruleForm.id = blog.id
+        _this.ruleForm.title = blog.title
+        _this.ruleForm.description = blog.description
+        _this.ruleForm.content = blog.content
+      })
+    }
   }
 }
 </script>
