@@ -29,9 +29,9 @@ public class BlogController {
     BlogService blogService;
 
     @GetMapping("/blogs")
-    public Result list(@RequestParam(defaultValue = "1") Integer currentPage) {
+    public Result list(@RequestParam(defaultValue = "1") Integer current) {
 
-        Page page = new Page(currentPage, 5);
+        Page page = new Page(current, 5);
         IPage pageData = blogService.page(page, new QueryWrapper<Blog>().orderByDesc("created"));
 
         return Result.succ(pageData);
