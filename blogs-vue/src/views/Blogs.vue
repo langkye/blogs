@@ -22,8 +22,8 @@
             <el-pagination
                 background
                 layout="prev, pager, next"
-                :current-page="currentPage"
-                :page-size="pageSize"
+                :current-page="current"
+                :page-size="size"
                 :total="total"
                 @current-change="page">
             </el-pagination>
@@ -47,10 +47,10 @@ export default {
   data() {
     return {
       blogs: [],
-      currentPage: 1,
+      current: 1,
       total: 0,
       size: 5,
-      pageSize: 1
+      pages: 1
     }
   },
   methods: {
@@ -59,9 +59,9 @@ export default {
       _this.$axios.get('blogs?current=' + current).then(response => {
         _this.blogs = response.data.data.records
         _this.total = response.data.data.total
-        _this.currentPage = response.data.data.current
+        _this.current = response.data.data.current
         _this.pages = response.data.data.pages
-        _this.pageSize = response.data.data.size
+        _this.size = response.data.data.size
       })
     }
   },
