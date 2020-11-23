@@ -8,6 +8,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import './axios'
 
 Vue.use(VueAxios, axios)
 Vue.prototype.$axios = axios
